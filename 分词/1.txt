@@ -1,0 +1,8 @@
+FMM：
+Precision:0.428753,Recall:0.839018,FScore:0.567503
+BMM：
+Precision:0.428965,Recall:0.841279,FScore:0.568205
+双向最大匹配：
+Precision:0.429178,Recall:0.841445,FScore:0.568429
+mmseg：
+Precision:0.379073,Recall:0.126802,FScore:0.190036

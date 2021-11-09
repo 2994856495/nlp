@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/2元文法进行文本分词消歧/txt/1998人民日报（分词）.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/2元文法进行文本分词消歧/txt/words.dic" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/MMSEG_Python/data/wordlist.Dic" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baikeSpider-master/ControlNode/new_urls.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baikeSpider-master/ControlNode/old_urls.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/分词/resource/wordlist.Dic" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/分词/resource/words.dic" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/分词/resource/words.dic" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/爬虫/TXT下载/txt/Fresh果果-花千骨.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/爬虫/TXT下载/txt/墨宝非宝-轻易放火.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/爬虫/TXT下载/txt/尤四姐-宫略.txt" charset="GBK" />
+  </component>
+</project>
