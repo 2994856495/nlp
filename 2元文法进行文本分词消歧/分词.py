@@ -9,8 +9,8 @@ import jieba
 seq = " "
 
 
-def readTxt():
-    with open("txt/1998人民日报.txt", "r", encoding='utf-8') as f:
+def readTxt(filename="txt/1998人民日报.txt"):
+    with open(filename, "r", encoding='utf-8') as f:
         reader = f.read()
         reader = reader.split("\n")
     return reader
@@ -84,8 +84,8 @@ def disambiguation_result():
     result = read_txt()
     # word_frequency = (open("txt/词频.txt", "r", encoding="utf-8").read())
     word_frequency = json.load(open("txt/词频.json", "r", encoding="utf-8"))
-    f = open("txt/fmm.txt", "r", encoding='utf-8').readlines()
-    b = open("txt/bmm.txt", "r", encoding='utf-8').readlines()
+    f = open("fmm.txt", "r", encoding='utf-8').readlines()
+    b = open("bmm.txt", "r", encoding='utf-8').readlines()
     n = ""
     num = len(f)
     for i in range(num):
@@ -120,7 +120,7 @@ def save():
     """
     fmm和bmm分词
     """
-    txt = readTxt()
+    txt = readTxt("txt/1.txt")
     # result = read_txt()
     # word_frequency = json.loads(open("txt/词频.json","r",encoding="utf-8"))
 
@@ -140,8 +140,8 @@ def save():
         # temp = list(jieba.cut(t))
         # print(temp)
         # j += "@ " + seq.join(temp) + " @" + "\n"
-    open("txt/fmm.txt", "w", encoding='utf-8').write(f)
-    open("txt/bmm.txt", "w", encoding='utf-8').write(b)
+    open("fmm.txt", "w", encoding='utf-8').write(f)
+    open("bmm.txt", "w", encoding='utf-8').write(b)
     # open("txt/jieba.txt", "w", encoding='utf-8').write(j)
     # open("txt/消歧结果.txt", "w", encoding='utf-8').write(n)
     # open("txt/测试语料每段话概率.txt", "w", encoding='utf-8').write(p)
@@ -149,4 +149,4 @@ def save():
 
 
 if __name__ == '__main__':
-    test()
+    save()

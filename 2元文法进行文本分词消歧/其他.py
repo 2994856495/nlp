@@ -3,7 +3,13 @@
 
 class caculate():
     """
-    和上次一模一样
+    和上次一模一样,基本没区别
+    FMM：
+    Precision:0.833863,Recall:0.703645,FScore:0.763240
+    BMM：
+    Precision:0.835413,Recall:0.704961,FScore:0.764663
+    消除歧义后的：
+    Precision:0.048407,Recall:0.040859,FScore:0.044314
     """
 
     def __init__(self, filename):
@@ -61,10 +67,10 @@ class caculate():
 
 if __name__ == '__main__':
     print("FMM：")
-    fmm = caculate("./txt/fmm.txt")
+    fmm = caculate("fmm.txt")
     print("Precision:%f,Recall:%f,FScore:%f" % (fmm.Precision, fmm.Recall, fmm.FScore))
     print("BMM：")
-    bmm = caculate("./txt/bmm.txt")
+    bmm = caculate("bmm.txt")
     print("Precision:%f,Recall:%f,FScore:%f" % (bmm.Precision, bmm.Recall, bmm.FScore))
     print("消除歧义后的：")
     two_way = caculate("./txt/消歧结果.txt")
