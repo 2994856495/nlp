@@ -1,28 +1,37 @@
-from 二元文法 import read_txt
+# from 二元文法 import read_txt
 
 
 class caculate():
     """
     和上次一模一样
     """
+
     def __init__(self, filename):
         #
         # jieba分词的结果
-        self.true_correct_txt = read_txt("./txt/jieba.txt")
-        self.true_correct_num = len(self.true_correct_txt)
-        # 这一步将列表转为字典，因为字典查询较快
-        self.true_correct_dic = self.changeIntoDic(self.true_correct_txt)
-        # 样本信息条数（除去标点符号，只保留中文）
-        self.sample_num_txt = read_txt(filename)
-        self.sample_num = len(self.sample_num_txt)
-
+        self.true_correct_txt = self.read_txt("./txt/jieba.txt")
+        self.true_correct_num = sum([len(i) for i in self.true_correct_txt])
+        # len(self.true_correct_txt)
+        # 样本信息条数
+        self.sample_num_txt = self.read_txt(filename)
+        self.sample_num = sum([len(i) for i in self.sample_num_txt])
         self.my_correct_txt = self.getMyCorrectNum()
-        self.my_correct_num = len(self.my_correct_txt)
-
+        self.my_correct_num = sum([len(i) for i in self.my_correct_txt])
         self.Precision = self.caculatePrecision()
         self.Recall = self.caculateRecall()
         self.FScore = self.caculateFScore()
+
         pass
+
+    def read_txt(self, filename):
+        result = []
+        f = open(filename, "r", encoding='utf-8')
+        for line in f:
+            result.append(line.replace("@", "").split("\n"))
+        result = [i[0].split(" ") for i in result]
+        result = [i[1:-1] for i in result]
+        f.close()
+        return result
 
     def changeIntoDic(self, txt):
         result = {}
@@ -32,9 +41,12 @@ class caculate():
 
     def getMyCorrectNum(self):
         result = []
-        for s in self.sample_num_txt:
-            if s in self.true_correct_dic:
-                result.append(s)
+        for i in range(len(self.true_correct_txt)):
+            temp = []
+            for x in self.sample_num_txt[i]:
+                if x in self.true_correct_txt[i]:
+                    temp.append(x)
+            result.append(temp)
         return result
 
     def caculatePrecision(self):
@@ -57,6 +69,3 @@ if __name__ == '__main__':
     print("消除歧义后的：")
     two_way = caculate("./txt/消歧结果.txt")
     print("Precision:%f,Recall:%f,FScore:%f" % (two_way.Precision, two_way.Recall, two_way.FScore))
-    # print("mmseg：")
-    # mmseg = caculate("./data/MMSEG.txt")
-    # print("Precision:%f,Recall:%f,FScore:%f" % (mmseg.Precision, mmseg.Recall, mmseg.FScore))
